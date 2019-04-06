@@ -7,7 +7,7 @@ Name:      keyboard-custom-emoji
 
 Summary:    The Emoji Keyboard
 Version:    0.4.3
-Release:    5
+Release:    6
 Group:      System/GUI/Other
 License:    TBD
 Source0:    %{name}-%{version}.tar.bz2
@@ -42,4 +42,4 @@ rm -rf %{buildroot}
 %{_datadir}/fonts/custom/*
 
 %post
-killall maliit-server
+systemctl-user restart maliit-server.service

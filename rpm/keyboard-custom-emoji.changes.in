@@ -8,6 +8,8 @@
 # * date Author's Name <author's email> version-release
 # - Summary of changes
 
+* Sat Apr 06 2019 Arno Dekker <jack.tar@example.com> 0.4.3-6
+- Config button fix for Sailfish 3.0.2.8
 * Sat Oct 21 2017 Arno Dekker <jack.tar@example.com> 0.4.3-5
 - Removed google analytics part
 - Fix for jolla tablet screen ratio
