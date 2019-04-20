@@ -31,7 +31,7 @@ Item {
         // Furthermore emojiKeyboard.height includes the real configRow.height (= Theme.itemSizeSmall) on SFOS 3.0.2, but excludes it on SFOS 2.2.1
         y: -emojiKeyboard.height - parent.height + Theme.paddingMedium
         width: configImage.width + Theme.paddingMedium * 2
-        height: configImage.height - Theme.paddingMedium * 2
+        height: configImage.height + Theme.paddingMedium * 2
         Image {
             id: configImage
             source: "image://theme/icon-s-setting"
