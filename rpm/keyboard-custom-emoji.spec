@@ -18,8 +18,8 @@ BuildRequires:  qt5-qmake
 #Requires:   maliit-server
 
 %description
-Enables Emoji characters in native SailfishOS applications in Jolla.
-Includes keyboard layouts and needed font to type and display Emoji.
+Enables a rich set of Emoji characters in native SailfishOS applications.
+Includes keyboard layouts and needed font to type and display Emojis.
 
 %prep
 %setup -q -n %{name}-%{version}
