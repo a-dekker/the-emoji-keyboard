@@ -19,14 +19,13 @@ Item {
     height: (configVisible) ? ((MInputMethodQuick.appOrientation % 180
                                 === 0) ? Screen.height : Screen.width) : 0.01
     // z: -1 // Make config button to hide below popper; broken as of 2019-04-20, causes config button not to be triggered properly
-
     /* Configuration button */
     Item {
         id: config
         property bool pressed: false
         property bool openConfig: false
         x: emojiKeyboard.width - config.width - Theme.paddingMedium
-        // It is tricky to determine the correct horizontal position, because parent.height and configRow.height seem to stay 0 rsp. false, 
+        // It is tricky to determine the correct vertical position, because parent.height and configRow.height (which should be equal) seem to stay 0 rsp. false, 
         // even if the configRow is visible (e.g., because configVisible seems to stay false; have not checked this theory though).
         // Furthermore emojiKeyboard.height includes the real configRow.height (= Theme.itemSizeSmall) on SFOS 3.0.2, but excludes it on SFOS 2.2.1
         y: -emojiKeyboard.height - parent.height + Theme.paddingMedium
