@@ -18,7 +18,7 @@ Item {
     // Using visible attribute would prevent configuration button to show
     height: (configVisible) ? ((MInputMethodQuick.appOrientation % 180
                                 === 0) ? Screen.height : Screen.width) : 0.01
-    z: -1 // Make config button to hide below popper
+    // z: -1 // Make config button to hide below popper; broken as of 2019-04-20, causes config button not to be triggered properly
 
     /* Configuration button */
     Item {
