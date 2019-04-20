@@ -29,9 +29,9 @@ Item {
         // It is tricky to determine the correct horizontal position, because parent.height and configRow.height seem to stay 0 rsp. false, 
         // even if the configRow is visible (e.g., because configVisible seems to stay false; have not checked this theory though).
         // Furthermore emojiKeyboard.height includes the real configRow.height (= Theme.itemSizeSmall) on SFOS 3.0.2, but excludes it on SFOS 2.2.1
-        y: -emojiKeyboard.height - parent.height + Theme.paddingSmall
-        width: configImage.width + Theme.paddingSmall * 2
-        height: Theme.itemSizeSmall - Theme.paddingSmall * 2
+        y: -emojiKeyboard.height - parent.height + Theme.paddingMedium
+        width: configImage.width + Theme.paddingMedium * 2
+        height: configImage.height - Theme.paddingMedium * 2
         Image {
             id: configImage
             source: "image://theme/icon-s-setting"
@@ -47,14 +47,14 @@ Item {
             color: config.pressed ? Theme.highlightBackgroundColor : Theme.primaryColor
             opacity: config.pressed ? 0.3 : 0.07
             radius: geometry.popperRadius
-            anchors.margins: Theme.paddingSmall
+            anchors.margins: Theme.paddingMedium
         }
         // Border
         Rectangle {
             width: parent.width
             height: parent.height
             radius: geometry.popperRadius
-            anchors.margins: Theme.paddingSmall
+            anchors.margins: Theme.paddingMedium
             border {
                 color: Theme.primaryColor
                 width: 1
