@@ -26,7 +26,10 @@ Item {
         property bool pressed: false
         property bool openConfig: false
         x: emojiKeyboard.width - config.width - Theme.paddingMedium
-        y: -emojiKeyboard.height - parent.height - Theme.itemSizeSmall + Theme.paddingSmall + Theme.paddingLarge * 4
+        // It is tricky to determine the correct horizontal position, because parent.height and configRow.height seem to stay 0 rsp. false, 
+        // even if the configRow is visible (e.g., because configVisible seems to stay false; have not checked this theory though).
+        // Furthermore emojiKeyboard.height includes the real configRow.height (= Theme.itemSizeSmall) on SFOS 3.0.2, but excludes it on SFOS 2.2.1
+        y: -emojiKeyboard.height - parent.height + Theme.paddingSmall
         width: configImage.width + Theme.paddingSmall * 2
         height: Theme.itemSizeSmall - Theme.paddingSmall
         Image {
