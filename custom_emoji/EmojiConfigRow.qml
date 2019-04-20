@@ -18,16 +18,19 @@ Item {
     // Using visible attribute would prevent configuration button to show
     height: (configVisible) ? ((MInputMethodQuick.appOrientation % 180
                                 === 0) ? Screen.height : Screen.width) : 0.01
-
+    // z: -1 // Make config button to hide below popper; broken as of 2019-04-20, causes config button not to be triggered properly
     /* Configuration button */
     Item {
         id: config
         property bool pressed: false
         property bool openConfig: false
         x: emojiKeyboard.width - config.width - Theme.paddingMedium
-        y: -emojiKeyboard.height - parent.height - Theme.itemSizeSmall + Theme.paddingSmall + Theme.paddingLarge * 4
-        width: configImage.width + Theme.paddingSmall * 2
-        height: width
+        // It is tricky to determine the correct vertical position, because parent.height and configRow.height (which should be equal) seem to stay 0 rsp. false, 
+        // even if the configRow is visible (e.g., because configVisible seems to stay false; have not checked this theory though).
+        // Furthermore emojiKeyboard.height includes the real configRow.height (= Theme.itemSizeSmall) on SFOS 3.0.2, but excludes it on SFOS 2.2.1
+        y: -emojiKeyboard.height - parent.height + Theme.paddingMedium
+        width: configImage.width + Theme.paddingMedium * 2
+        height: configImage.height + Theme.paddingMedium * 2
         Image {
             id: configImage
             source: "image://theme/icon-s-setting"
@@ -43,14 +46,14 @@ Item {
             color: config.pressed ? Theme.highlightBackgroundColor : Theme.primaryColor
             opacity: config.pressed ? 0.3 : 0.07
             radius: geometry.popperRadius
-            anchors.margins: Theme.paddingSmall
+            anchors.margins: Theme.paddingMedium
         }
         // Border
         Rectangle {
             width: parent.width
             height: parent.height
             radius: geometry.popperRadius
-            anchors.margins: Theme.paddingSmall
+            anchors.margins: Theme.paddingMedium
             border {
                 color: Theme.primaryColor
                 width: 1
