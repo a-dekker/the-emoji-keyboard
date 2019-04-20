@@ -7,9 +7,9 @@ Name:      keyboard-custom-emoji
 
 Summary:    The Emoji Keyboard
 Version:    0.4.3
-Release:    6
+Release:    9
 Group:      System/GUI/Other
-License:    TBD
+License:    Apache 2.0
 Source0:    %{name}-%{version}.tar.bz2
 BuildArch:  noarch
 BuildRequires:  qt5-qttools

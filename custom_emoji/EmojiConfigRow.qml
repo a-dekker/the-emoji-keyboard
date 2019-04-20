@@ -18,7 +18,6 @@ Item {
     // Using visible attribute would prevent configuration button to show
     height: (configVisible) ? ((MInputMethodQuick.appOrientation % 180
                                 === 0) ? Screen.height : Screen.width) : 0.01
-    z: -1 // Make config button to hide below popper
 
     /* Configuration button */
     Item {
@@ -28,7 +27,7 @@ Item {
         x: emojiKeyboard.width - config.width - Theme.paddingMedium
         y: -emojiKeyboard.height - parent.height - Theme.itemSizeSmall + Theme.paddingSmall + Theme.paddingLarge * 4
         width: configImage.width + Theme.paddingSmall * 2
-        height: Theme.itemSizeSmall - Theme.paddingSmall
+        height: width
         Image {
             id: configImage
             source: "image://theme/icon-s-setting"
