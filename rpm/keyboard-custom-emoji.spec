@@ -5,9 +5,9 @@ Name:      keyboard-custom-emoji
 %{!?qtc_make:%define qtc_make make}
 %{?qtc_builddir:%define _builddir %qtc_builddir}
 
-Summary:    The Emoji Keyboard
+Summary:    The Emoji+ Keyboard
 Version:    0.4.3
-Release:    9
+Release:    10
 Group:      System/GUI/Other
 License:    Apache 2.0
 Source0:    %{name}-%{version}.tar.bz2
@@ -18,8 +18,8 @@ BuildRequires:  qt5-qmake
 #Requires:   maliit-server
 
 %description
-Enables Emoji characters in native SailfishOS applications in Jolla.
-Includes keyboard layouts and needed font to type and display Emoji.
+Enables a rich set of Emoji characters in native SailfishOS applications.
+Includes keyboard layouts and needed font to type and display Emojis.
 
 %prep
 %setup -q -n %{name}-%{version}
