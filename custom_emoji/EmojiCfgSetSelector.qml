@@ -12,12 +12,30 @@ Item {
     property string textSelector: ""
     width: emojiGeometry.setSelectKeyWidth
     height: keyHeight
-    Text {
+    Loader{
+        sourceComponent: textSelector != "" && textSelector != "!?#" ? iconComponent : keyTextComponent
         anchors.centerIn: parent
-        text: textSelector
-        color: Theme.primaryColor
-        font.pixelSize: Theme.fontSizeSmall
     }
+    Component{
+        id: keyTextComponent
+        Text {
+            anchors.centerIn: parent
+            text: textSelector
+            color: Theme.primaryColor
+            font.pixelSize: Theme.fontSizeSmall
+        }
+    }
+    Component{
+        id: iconComponent
+        Image {
+            asynchronous: true
+            width: Theme.itemSizeSmall/2
+            height: Theme.itemSizeSmall/2
+            anchors.centerIn: parent
+            source: "emoji/" + textSelector + ".gif"
+        }
+    }
+
     Rectangle {
         color: Theme.primaryColor
         opacity: 0.17

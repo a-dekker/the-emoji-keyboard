@@ -43,3 +43,6 @@ rm -rf %{buildroot}
 
 %post
 systemctl-user restart maliit-server.service
+
+%postun
+systemctl-user restart maliit-server.service

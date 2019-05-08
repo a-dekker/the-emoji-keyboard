@@ -15,13 +15,13 @@ EmojiConfigSwipeArea {
     anchors.fill: parent
 
     PageHeader {
-    id: title
-    title: "Emoji Keyboard Settings"
+        id: title
+        title: "Emoji Keyboard Settings"
     }
 
     function resetFlick() {
-    flickArea.contentX = 0;
-    flickArea.contentY = 0;
+        flickArea.contentX = 0;
+        flickArea.contentY = 0;
     }
 
     Item {
@@ -303,9 +303,19 @@ EmojiConfigSwipeArea {
 
                 }
 
-                // Label size padding to end
-                Label {
-                    text: " "
+                Button{
+                    text: "Close"
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    onClicked:{
+                        config.openConfig = !config.openConfig
+                        configRow.configVisible = config.openConfig ? true : false
+                        emojiConfiguration.resetFlick()
+                    }
+                }
+
+                Item{
+                    width: parent.width
+                    height: Theme.itemSizeSmall
                 }
             }
             ScrollDecorator { flickable: flickArea }
