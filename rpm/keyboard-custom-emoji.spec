@@ -6,8 +6,8 @@ Name:      keyboard-custom-emoji
 %{?qtc_builddir:%define _builddir %qtc_builddir}
 
 Summary:    The Emoji+ Keyboard
-Version:    0.4.3
-Release:    10
+Version:    0.4.4
+Release:    1
 Group:      System/GUI/Other
 License:    Apache 2.0
 Source0:    %{name}-%{version}.tar.bz2

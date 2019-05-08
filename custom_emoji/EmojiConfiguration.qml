@@ -76,7 +76,7 @@ EmojiConfigSwipeArea {
                     color: Theme.highlightColor
                     font.pixelSize: Theme.fontSizeSmall
                     wrapMode: Text.WrapAtWordBoundaryOrAnywhere
-                    text: "You may personalize The Emoji Keyboard by altering settings below. When finished you can exit the settings by swiping from left to right."
+                    text: "You may personalize The Emoji Keyboard by altering settings below. When finished you can exit the settings by swiping from left to right or use the Close button below."
                 }
 
                 SectionHeader {

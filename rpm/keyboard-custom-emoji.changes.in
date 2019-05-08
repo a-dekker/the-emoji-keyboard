@@ -7,6 +7,9 @@
 
 # * date Author's Name <author's email> version-release
 # - Summary of changes
+* Sat Apr 20 2019 olf <tar.jack@example.com> 0.4.4-1
+- Close button on settingspage
+- Add color emoji support from harbour-dolphin-keyboard
 * Sat Apr 20 2019 olf <tar.jack@example.com> 0.4.3-10
 - Make config button square and slightly larger
 * Sat Apr 20 2019 Arno Dekker <jack.tar@example.com> 0.4.3-9

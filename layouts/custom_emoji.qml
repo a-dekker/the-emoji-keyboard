@@ -17,7 +17,7 @@ KeyboardLayout {
     // FIXME: There should be a proper way to disable text prediction
     //        although this seems to do it
     type: "emoji"
-    property string appVersion: "0.4.3"
+    property string appVersion: "0.4.4"
 
     EmojiGeometry { id: emojiGeometry }
     EmojiLibrary { id: emojiLibrary }
