@@ -47,40 +47,46 @@ KeyBase {
     property bool showHighlight: true
     property bool showPopper: false // system keyboard popper can't handle over two byte long Unicode characters and must be disabled
     property bool fixedWidth
-    property alias useBoldFont: keyText.font.bold
-    property alias _keyText: keyText.text
+    // property alias useBoldFont: keyText.font.bold
+    // property alias _keyText: caption
 
     keyType: KeyType.CharacterKey
-    text: keyText.text
+    text: caption
     enabled: (caption == "") ? false : true
 
-    Text {
-        id: keyText
-        visible: !icon.visible
+    Loader{
+        sourceComponent: aEmojiSymbolKey.enabled ? iconComponent : keyTextComponent
         anchors.centerIn: parent
-        anchors.horizontalCenterOffset: (leftPadding - rightPadding) / 2
-        horizontalAlignment: Text.AlignHCenter
-        verticalAlignment: Text.AlignVCenter
-        font.family: Theme.fontFamily
-        font.pixelSize: (Theme.fontSizeMedium * 2 + Theme.fontSizeLarge) / 3
-        color: pressed ? Theme.highlightColor : Theme.primaryColor
-        text: caption
     }
 
-    Image {
-        id: icon
-        visible: icon.status === Image.Error || 
-                    icon.status === Image.Null || 
-                    source === null || source === "" ||
-                    typeof source === "undefined"  ? false : true
-        asynchronous: true
-        width: Theme.itemSizeSmall/2
-        height: Theme.itemSizeSmall/2
-        anchors.centerIn: parent
-        source: "emoji/" + caption + ".gif"
-        anchors.horizontalCenterOffset: (leftPadding - rightPadding) / 2
-        horizontalAlignment: Text.AlignHCenter
-        verticalAlignment: Text.AlignVCenter
+    Component{
+        id: keyTextComponent
+        Text {
+            anchors.centerIn: parent
+            anchors.horizontalCenterOffset: (leftPadding - rightPadding) / 2
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignVCenter
+            font.family: Theme.fontFamily
+            font.pixelSize: (Theme.fontSizeMedium * 2 + Theme.fontSizeLarge) / 3
+            color: pressed ? Theme.highlightColor : Theme.primaryColor
+            text: caption
+        }
+    }
+
+    Component{
+        id: iconComponent
+        Image {
+            id: icon
+            asynchronous: true
+            visible: caption && caption != "" && typeof caption != "undefined"
+            width: Theme.itemSizeSmall/2
+            height: Theme.itemSizeSmall/2
+            anchors.centerIn: parent
+            source: "emoji/" + caption + ".gif"
+            anchors.horizontalCenterOffset: (leftPadding - rightPadding) / 2
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignVCenter
+        }
     }
 
     Image {

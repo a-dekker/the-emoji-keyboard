@@ -15,17 +15,36 @@ Item {
     width: emojiGeometry.setSelectKeyWidth*.85
     height: keyHeight*.85
 
-    Text {
-        id: keyText
+    Loader{
+        sourceComponent: emojiCfgSymbolKey.separator ? iconComponent : keyTextComponent
         anchors.centerIn: parent
-        horizontalAlignment: Text.AlignHCenter
-        verticalAlignment: Text.AlignVCenter
-        font.family: Theme.fontFamily
-        font.pixelSize: Theme.fontSizeMedium
-        color: Theme.primaryColor
-    text: caption
     }
-
+    Component{
+        id: keyTextComponent
+        Text {
+            id: keyText
+            anchors.centerIn: parent
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignVCenter
+            font.family: Theme.fontFamily
+            font.pixelSize: Theme.fontSizeMedium
+            color: Theme.primaryColor
+            text: caption
+        }
+    }
+    Component{
+        id: iconComponent
+        Image {
+            id: icon
+            asynchronous: true
+            width: Theme.itemSizeSmall/2
+            height: Theme.itemSizeSmall/2
+            anchors.centerIn: parent
+            source: "emoji/" + caption + ".gif"
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignVCenter
+        }
+    }
     Image {
         source: "../graphic-keyboard-highlight-top.png"
         anchors.right: parent.right
