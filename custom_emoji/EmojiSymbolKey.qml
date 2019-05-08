@@ -56,6 +56,7 @@ KeyBase {
 
     Text {
         id: keyText
+        visible: !icon.visible
         anchors.centerIn: parent
         anchors.horizontalCenterOffset: (leftPadding - rightPadding) / 2
         horizontalAlignment: Text.AlignHCenter
@@ -64,6 +65,22 @@ KeyBase {
         font.pixelSize: (Theme.fontSizeMedium * 2 + Theme.fontSizeLarge) / 3
         color: pressed ? Theme.highlightColor : Theme.primaryColor
         text: caption
+    }
+
+    Image {
+        id: icon
+        visible: icon.status === Image.Error || 
+                    icon.status === Image.Null || 
+                    source === null || source === "" ||
+                    typeof source === "undefined"  ? false : true
+        asynchronous: true
+        width: Theme.itemSizeSmall/2
+        height: Theme.itemSizeSmall/2
+        anchors.centerIn: parent
+        source: "emoji/" + caption + ".gif"
+        anchors.horizontalCenterOffset: (leftPadding - rightPadding) / 2
+        horizontalAlignment: Text.AlignHCenter
+        verticalAlignment: Text.AlignVCenter
     }
 
     Image {
