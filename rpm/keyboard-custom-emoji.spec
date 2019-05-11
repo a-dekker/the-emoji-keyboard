@@ -7,7 +7,7 @@ Name:      keyboard-custom-emoji
 
 Summary:    The Emoji+ Keyboard
 Version:    0.4.4
-Release:    2
+Release:    3
 Group:      System/GUI/Other
 License:    Apache 2.0
 Source0:    %{name}-%{version}.tar.bz2

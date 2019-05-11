@@ -24,12 +24,12 @@ Item {
         id: config
         property bool pressed: false
         property bool openConfig: false
-        x: portraitMode ? emojiKeyboard.width - config.width
-                          - Theme.paddingMedium : (emojiKeyboard.width - config.width) / 2
+        x: emojiKeyboard.width - config.width - Theme.paddingMedium
         // It is tricky to determine the correct vertical position, because parent.height and configRow.height (which should be equal) seem to stay 0 rsp. false,
         // even if the configRow is visible (e.g., because configVisible seems to stay false; have not checked this theory though).
         // Furthermore emojiKeyboard.height includes the real configRow.height (= Theme.itemSizeSmall) on SFOS 3.0.2, but excludes it on SFOS 2.2.1
-        y: -emojiKeyboard.height - parent.height + Theme.paddingMedium
+        y: portraitMode ? -emojiKeyboard.height - parent.height
+                          + Theme.paddingMedium : parent.height - Theme.paddingMedium - config.width
         width: configImage.width + Theme.paddingMedium * 2
         height: configImage.height + Theme.paddingMedium * 2
         Image {
