@@ -21,6 +21,7 @@ FunctionKey {
     key: Qt.Key_unknown
     implicitWidth: emojiGeometry.setSelectKeyWidth
     keyType: KeyType.DeadKey
+    background.visible: false
 
     onClicked: {
         saveSetting('emojiPage' + emojiSet, emojiPage)

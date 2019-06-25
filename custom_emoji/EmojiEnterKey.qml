@@ -38,6 +38,7 @@ FunctionKey {
     repeat: false
     key: Qt.Key_Return
     implicitWidth: shiftKeyWidth
+    background.visible: false
 
     Rectangle {
         color: parent.pressed ? Theme.highlightBackgroundColor : Theme.primaryColor
