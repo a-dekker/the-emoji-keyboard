@@ -32,12 +32,12 @@ Item {
                           + Theme.paddingMedium : parent.height - Theme.paddingMedium - config.width
         width: configImage.width + Theme.paddingMedium * 2
         height: configImage.height + Theme.paddingMedium * 2
+        visible: !config.openConfig
         Image {
             id: configImage
             source: "image://theme/icon-s-setting"
             anchors.centerIn: parent
             opacity: 0.6
-            visible: true
         }
         // Button background
         Rectangle {
@@ -71,8 +71,6 @@ Item {
             }
             onReleased: {
                 config.pressed = false
-            }
-            onPressAndHold: {
                 config.openConfig = !config.openConfig
                 configRow.configVisible = config.openConfig ? true : false
                 emojiConfiguration.resetFlick()

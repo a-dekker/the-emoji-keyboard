@@ -6,7 +6,15 @@
 # Separate entries from each other with a blank line.
 
 # * date Author's Name <author's email> version-release
+* Tue Jun 25 2019 Arno Dekker <jack.tar@example.com> 0.4.4-5
+- Config button no longer a longpress button
+- Hide config button in landscape config screen itself
+- Removed background from left/right keys
+* Fri May 24 2019 Arno Dekker <jack.tar@example.com> 0.4.4-4
+- Make page navigation circular
 # - Summary of changes
+* Fri May 24 2019 Arno Dekker <jack.tar@example.com> 0.4.4-4
+- Make page navigation circular
 * Sat May 11 2019 Arno Dekker <jack.tar@example.com> 0.4.4-3
 - Moved config button to lower right not to interfer with clipboard text and non-split setting keyboard
 * Sat May 11 2019 Arno Dekker <jack.tar@example.com> 0.4.4-2

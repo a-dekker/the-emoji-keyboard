@@ -238,14 +238,13 @@ KeyboardLayout {
     }
 
     KeyboardRow {
-        //  width: keyboard.width
         FunctionKey {
             icon.source: "image://theme/icon-m-left" + (pressed ? ("?" + Theme.highlightColor) : "")
-            opacity: prevPage ? 0.6 : 0.1
-            enabled: (prevPage ? true : false)
+            opacity: 0.6
             implicitWidth: icon.width + Theme.paddingSmall * 2
+            background.visible: false
             onClicked: {
-                emojiPage = prevPage ? (emojiPage - 1) : emojiPage
+                emojiPage = prevPage ? (emojiPage - 1) : emojiChar[emojiSet].length - 1
                 saveSetting('emojiPage' + emojiSet, emojiPage)
                 canvas.updateIMArea()
             }
@@ -279,11 +278,11 @@ KeyboardLayout {
         FunctionKey {
             icon.source: "image://theme/icon-m-right"
                          + (pressed ? ("?" + Theme.highlightColor) : "")
-            opacity: nextPage ? 0.6 : 0.1
-            enabled: (nextPage ? true : false)
+            opacity: 0.6
             implicitWidth: icon.width + Theme.paddingSmall * 2
+            background.visible: false
             onClicked: {
-                emojiPage = nextPage ? (emojiPage + 1) : emojiPage
+                emojiPage = nextPage ? (emojiPage + 1) : 0
                 saveSetting('emojiPage' + emojiSet, emojiPage)
                 canvas.updateIMArea()
             }
