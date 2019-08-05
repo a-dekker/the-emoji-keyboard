@@ -1,9 +1,9 @@
+
+
 /*
  * Copyright (C) 2014 Janne Edelman.
  * Contact: Janne Edelman <janne.edelman@gmail.com>
  */
-
-
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 
@@ -12,11 +12,12 @@ Item {
     property string textSelector: ""
     width: emojiGeometry.setSelectKeyWidth
     height: keyHeight
-    Loader{
-        sourceComponent: textSelector != "" && textSelector != "!?#" ? iconComponent : keyTextComponent
+    Loader {
+        sourceComponent: textSelector != "" && textSelector != "!?#"
+                         && emojiKeyboard.useColor === 1 ? iconComponent : keyTextComponent
         anchors.centerIn: parent
     }
-    Component{
+    Component {
         id: keyTextComponent
         Text {
             anchors.centerIn: parent
@@ -25,12 +26,12 @@ Item {
             font.pixelSize: Theme.fontSizeSmall
         }
     }
-    Component{
+    Component {
         id: iconComponent
         Image {
             asynchronous: true
-            width: Theme.itemSizeSmall/2
-            height: Theme.itemSizeSmall/2
+            width: Theme.itemSizeSmall / 2
+            height: Theme.itemSizeSmall / 2
             anchors.centerIn: parent
             source: "emoji/" + textSelector + ".gif"
         }

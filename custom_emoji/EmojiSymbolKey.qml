@@ -55,7 +55,7 @@ KeyBase {
     enabled: (caption == "") ? false : true
 
     Loader{
-        sourceComponent: aEmojiSymbolKey.enabled ? iconComponent : keyTextComponent
+        sourceComponent: aEmojiSymbolKey.enabled && emojiKeyboard.useColor === 1 ? iconComponent : keyTextComponent
         anchors.centerIn: parent
     }
 

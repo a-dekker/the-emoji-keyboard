@@ -227,6 +227,24 @@ EmojiConfigSwipeArea {
                  }
                  */
                 SectionHeader {
+                    text: "Keyboard Emoji display"
+                }
+                TextSwitch {
+                    checked: (emojiKeyboard.useColor === 1)
+                    text: "Use color"
+                    description: "Display emojis in full color"
+                    onClicked: {
+                        if (checked) {
+                            emojiKeyboard.useColor = 1
+                        } else {
+                            emojiKeyboard.useColor = 0
+                        }
+                        emojiKeyboard.saveSetting('UseColor',
+                                                  emojiKeyboard.useColor)
+                    }
+                }
+
+                SectionHeader {
                     text: "Favorites "
                 }
 

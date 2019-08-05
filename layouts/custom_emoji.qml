@@ -18,7 +18,7 @@ KeyboardLayout {
     // FIXME: There should be a proper way to disable text prediction
     //        although this seems to do it
     type: "emoji"
-    property string appVersion: "0.4.4"
+    property string appVersion: "0.4.5"
 
     EmojiGeometry {
         id: emojiGeometry
@@ -41,6 +41,7 @@ KeyboardLayout {
 
     property string keyboardSelectRow: 'Apple'
     property int keySpace: 1
+    property int useColor: 1
     property bool languageSelectPressed
 
     // Storage functions
@@ -126,6 +127,8 @@ KeyboardLayout {
         // Keyboard select key click behavior
         keySpace = getSetting('KeySpace', keySpace)
         console.log("emojiKeyboard.keySpace", keySpace)
+        keySpace = getSetting('UseColor', useColor)
+        console.log("emojiKeyboard.useColor", useColor)
     }
 
     /* DEBUG */
