@@ -4,7 +4,7 @@
  * Copyright (C) 2014 Janne Edelman.
  * Contact: Janne Edelman <janne.edelman@gmail.com>
  */
-import QtQuick 2.0
+import QtQuick 2.2
 import Sailfish.Silica 1.0
 
 Item {
@@ -13,8 +13,7 @@ Item {
     width: emojiGeometry.setSelectKeyWidth
     height: keyHeight
     Loader {
-        sourceComponent: textSelector != "" && textSelector != "!?#"
-                         && emojiKeyboard.useColor === 1 ? iconComponent : keyTextComponent
+        sourceComponent: textSelector != "" && keyTextComponent
         anchors.centerIn: parent
     }
     Component {

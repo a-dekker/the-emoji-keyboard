@@ -4,7 +4,7 @@
  * Copyright (C) 2014 Janne Edelman.
  * Contact: Janne Edelman <janne.edelman@gmail.com>
  */
-import QtQuick 2.0
+import QtQuick 2.2
 import QtQuick.LocalStorage 2.0
 import Sailfish.Silica 1.0
 import com.jolla.keyboard 1.0
@@ -18,7 +18,7 @@ KeyboardLayout {
     // FIXME: There should be a proper way to disable text prediction
     //        although this seems to do it
     type: "emoji"
-    property string appVersion: "0.4.5"
+    property string appVersion: "0.4.6"
 
     EmojiGeometry {
         id: emojiGeometry
@@ -243,9 +243,10 @@ KeyboardLayout {
     KeyboardRow {
         FunctionKey {
             icon.source: "image://theme/icon-m-left" + (pressed ? ("?" + Theme.highlightColor) : "")
-            opacity: 0.6
+            opacity: !prevPage && !nextPage ? 0.1 : 0.6
             implicitWidth: icon.width + Theme.paddingSmall * 2
             background.visible: false
+            enabled: prevPage || nextPage
             onClicked: {
                 emojiPage = prevPage ? (emojiPage - 1) : emojiChar[emojiSet].length - 1
                 saveSetting('emojiPage' + emojiSet, emojiPage)
@@ -281,9 +282,10 @@ KeyboardLayout {
         FunctionKey {
             icon.source: "image://theme/icon-m-right"
                          + (pressed ? ("?" + Theme.highlightColor) : "")
-            opacity: 0.6
+            opacity: !prevPage && !nextPage ? 0.1 : 0.6
             implicitWidth: icon.width + Theme.paddingSmall * 2
             background.visible: false
+            enabled: prevPage || nextPage
             onClicked: {
                 emojiPage = nextPage ? (emojiPage + 1) : 0
                 saveSetting('emojiPage' + emojiSet, emojiPage)

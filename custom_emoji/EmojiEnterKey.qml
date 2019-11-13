@@ -1,3 +1,5 @@
+
+
 /*
  * Copyright (C) 2014 Janne Edelman.
  * Contact: Janne Edelman <janne.edelman@gmail.com>
@@ -27,13 +29,13 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  */
-
-import QtQuick 2.0
+import QtQuick 2.2
 import Sailfish.Silica 1.0
 import ".."
 
 FunctionKey {
-    icon.source: MInputMethodQuick.actionKeyOverride.icon + (pressed ? ("?" + Theme.highlightColor) : "")
+    icon.source: MInputMethodQuick.actionKeyOverride.icon
+                 + (pressed ? ("?" + Theme.highlightColor) : "")
     caption: MInputMethodQuick.actionKeyOverride.label
     repeat: false
     key: Qt.Key_Return
@@ -51,5 +53,4 @@ FunctionKey {
         anchors.leftMargin: Theme.paddingSmall
         anchors.rightMargin: Theme.paddingSmall
     }
-
 }

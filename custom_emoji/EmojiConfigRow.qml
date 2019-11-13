@@ -4,7 +4,7 @@
  * Copyright (C) 2014 Janne Edelman.
  * Contact: Janne Edelman <janne.edelman@gmail.com>
  */
-import QtQuick 2.0
+import QtQuick 2.2
 import com.jolla.keyboard 1.0
 import Sailfish.Silica 1.0
 import ".."

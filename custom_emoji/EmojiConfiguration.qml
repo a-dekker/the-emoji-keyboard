@@ -4,7 +4,7 @@
  * Copyright (C) 2014 Janne Edelman.
  * Contact: Janne Edelman <janne.edelman@gmail.com>
  */
-import QtQuick 2.0
+import QtQuick 2.2
 import Sailfish.Silica 1.0
 
 EmojiConfigSwipeArea {
@@ -17,7 +17,7 @@ EmojiConfigSwipeArea {
 
     PageHeader {
         id: title
-        title: "Emoji Keyboard Settings"
+        title: "Emoji+ Keyboard Settings"
     }
 
     function resetFlick() {
@@ -74,7 +74,7 @@ EmojiConfigSwipeArea {
                         right: parent.right
                         margins: Theme.paddingLarge
                     }
-                    color: Theme.highlightColor
+                    color: Theme.primaryColor
                     font.pixelSize: Theme.fontSizeSmall
                     wrapMode: Text.WrapAtWordBoundaryOrAnywhere
                     text: "You may personalize The Emoji Keyboard by altering settings below. When finished you can exit the settings by swiping from left to right or use the Close button below."

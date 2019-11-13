@@ -1,3 +1,5 @@
+
+
 /*
  * Copyright (C) 2014 Janne Edelman.
  * Contact: Janne Edelman <janne.edelman@gmail.com>
@@ -31,8 +33,7 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-
-import QtQuick 2.0
+import QtQuick 2.2
 import Sailfish.Silica 1.0
 
 BackgroundItem {
@@ -42,9 +43,9 @@ BackgroundItem {
 
     function show(title, desc, timeout) {
         emojiRemorse.text = title
-    if(desc !== null) {
-        emojiRemorse.description = desc
-    }
+        if (desc !== null) {
+            emojiRemorse.description = desc
+        }
         _timeout = timeout === undefined ? 5000 : timeout
         _triggered = false
         countdown.restart()
@@ -69,7 +70,7 @@ BackgroundItem {
     }
 
     property int _timeout: 5000
-    property int _secsRemaining: Math.ceil(_msRemaining/1000).toFixed(0)
+    property int _secsRemaining: Math.ceil(_msRemaining / 1000).toFixed(0)
     property real _msRemaining: _timeout
     property bool _triggered
 
@@ -86,21 +87,31 @@ BackgroundItem {
 
     states: State {
         name: "active"
-        PropertyChanges { target: emojiRemorse; opacity: 1.0; visible: true }
+        PropertyChanges {
+            target: emojiRemorse
+            opacity: 1.0
+            visible: true
+        }
     }
 
     transitions: [
         Transition {
             to: "active"
             SequentialAnimation {
-                PropertyAction { properties: "visible" }
-                FadeAnimation {}
+                PropertyAction {
+                    properties: "visible"
+                }
+                FadeAnimation {
+                }
             }
         },
         Transition {
             SequentialAnimation {
-                FadeAnimation {}
-                PropertyAction { properties: "visible" }
+                FadeAnimation {
+                }
+                PropertyAction {
+                    properties: "visible"
+                }
             }
         }
     ]
@@ -150,9 +161,9 @@ BackgroundItem {
     // Using property  will cause keyboard to crash
     NumberAnimation on _msRemaining {
         id: countdown
-    // target: emojiRemorse
-    // property: "_msRemaining"
-    running: false
+        // target: emojiRemorse
+        // property: "_msRemaining"
+        running: false
         from: _timeout
         to: 0
         duration: _timeout

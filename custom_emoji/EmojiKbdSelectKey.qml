@@ -4,7 +4,7 @@
  * Portions copyright (C) 2013 Jolla Ltd.
  */
 
-import QtQuick 2.0
+import QtQuick 2.2
 import Sailfish.Silica 1.0
 import com.jolla.keyboard 1.0
 import ".."

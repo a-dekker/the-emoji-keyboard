@@ -1,9 +1,10 @@
+
+
 /*
  * Author: Sergejs Kovrovs
  * Source: <https://gist.github.com/kovrov/1742405>
  */
-
-import QtQuick 2.0
+import QtQuick 2.2
 
 MouseArea {
     property point origin

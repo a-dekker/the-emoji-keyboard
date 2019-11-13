@@ -1,10 +1,9 @@
+
 // Copyright (C) 2013 Jolla Ltd.
 // Contact: Pekka Vuorela <pekka.vuorela@jollamobile.com>
-//
 // Imported from Sailfish 1.1.2.16 to get Emoji Keyboard back working.
 // Need to find out why new ../KeyboardRow.qml breaks the selection row on landscape and rotate
-
-import QtQuick 2.0
+import QtQuick 2.2
 
 Row {
     property int basicButtonSize
@@ -25,8 +24,7 @@ Row {
             }
         }
 
-        return basicButtonCount !== 0 ? shareableWidth / basicButtonCount
-                                      : originalWidth
+        return basicButtonCount !== 0 ? shareableWidth / basicButtonCount : originalWidth
     }
 
     function relayout() {
